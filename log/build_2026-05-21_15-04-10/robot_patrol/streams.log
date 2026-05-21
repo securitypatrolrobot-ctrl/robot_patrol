@@ -1,0 +1,44 @@
+[0.890s] Invoking command in '/home/patrol/robot_patrol_ws/src/robot_patrol': PYTHONPATH=/home/patrol/robot_patrol_ws/build/robot_patrol/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_patrol build --build-base /home/patrol/robot_patrol_ws/build/robot_patrol/build install --record /home/patrol/robot_patrol_ws/build/robot_patrol/install.log --single-version-externally-managed install_data
+[1.244s] running egg_info
+[1.245s] writing ../../build/robot_patrol/robot_patrol.egg-info/PKG-INFO
+[1.246s] writing dependency_links to ../../build/robot_patrol/robot_patrol.egg-info/dependency_links.txt
+[1.246s] writing entry points to ../../build/robot_patrol/robot_patrol.egg-info/entry_points.txt
+[1.246s] writing requirements to ../../build/robot_patrol/robot_patrol.egg-info/requires.txt
+[1.246s] writing top-level names to ../../build/robot_patrol/robot_patrol.egg-info/top_level.txt
+[1.287s] reading manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+[1.288s] writing manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+[1.288s] running build
+[1.288s] running build_py
+[1.288s] copying robot_patrol/ros_failsafe_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.289s] copying robot_patrol/ros_navigation_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.289s] copying robot_patrol/ros_ultrasonic_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.289s] copying robot_patrol/ros_lora_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.289s] copying robot_patrol/ros_vision_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.289s] copying robot_patrol/ros_lidar_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.292s] running install
+[1.293s] running install_lib
+[1.294s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_failsafe_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.294s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_navigation_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.295s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_ultrasonic_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.295s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_lora_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.295s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_vision_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.295s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_lidar_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.296s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_failsafe_node.py to ros_failsafe_node.cpython-38.pyc
+[1.298s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_navigation_node.py to ros_navigation_node.cpython-38.pyc
+[1.299s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_ultrasonic_node.py to ros_ultrasonic_node.cpython-38.pyc
+[1.299s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_lora_node.py to ros_lora_node.cpython-38.pyc
+[1.300s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_vision_node.py to ros_vision_node.cpython-38.pyc
+[1.300s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_lidar_node.py to ros_lidar_node.cpython-38.pyc
+[1.301s] running install_data
+[1.301s] running install_egg_info
+[1.303s] removing '/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol-0.0.0-py3.8.egg-info' (and everything under it)
+[1.303s] Copying ../../build/robot_patrol/robot_patrol.egg-info to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol-0.0.0-py3.8.egg-info
+[1.304s] running install_scripts
+[1.326s] Installing failsafe_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.327s] Installing lidar_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.327s] Installing lora_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.327s] Installing navigation_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.327s] Installing ultrasonic_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.327s] Installing vision_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.328s] writing list of installed files to '/home/patrol/robot_patrol_ws/build/robot_patrol/install.log'
+[1.359s] Invoked command in '/home/patrol/robot_patrol_ws/src/robot_patrol' returned '0': PYTHONPATH=/home/patrol/robot_patrol_ws/build/robot_patrol/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_patrol build --build-base /home/patrol/robot_patrol_ws/build/robot_patrol/build install --record /home/patrol/robot_patrol_ws/build/robot_patrol/install.log --single-version-externally-managed install_data

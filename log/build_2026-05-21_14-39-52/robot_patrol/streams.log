@@ -1,0 +1,71 @@
+[0.725s] Invoking command in '/home/patrol/robot_patrol_ws/src/robot_patrol': PYTHONPATH=/home/patrol/robot_patrol_ws/build/robot_patrol/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_patrol build --build-base /home/patrol/robot_patrol_ws/build/robot_patrol/build install --record /home/patrol/robot_patrol_ws/build/robot_patrol/install.log --single-version-externally-managed install_data
+[0.966s] running egg_info
+[0.967s] creating ../../build/robot_patrol/robot_patrol.egg-info
+[0.967s] writing ../../build/robot_patrol/robot_patrol.egg-info/PKG-INFO
+[0.967s] writing dependency_links to ../../build/robot_patrol/robot_patrol.egg-info/dependency_links.txt
+[0.967s] writing entry points to ../../build/robot_patrol/robot_patrol.egg-info/entry_points.txt
+[0.968s] writing requirements to ../../build/robot_patrol/robot_patrol.egg-info/requires.txt
+[0.968s] writing top-level names to ../../build/robot_patrol/robot_patrol.egg-info/top_level.txt
+[0.969s] writing manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+[1.003s] package init file 'robot_patrol/failsafe/__init__.py' not found (or not a regular file)
+[1.003s] package init file 'robot_patrol/vision/__init__.py' not found (or not a regular file)
+[1.003s] package init file 'robot_patrol/navigation/__init__.py' not found (or not a regular file)
+[1.003s] package init file 'robot_patrol/communication/__init__.py' not found (or not a regular file)
+[1.004s] reading manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+[1.004s] writing manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+[1.005s] running build
+[1.005s] running build_py
+[1.005s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build
+[1.005s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib
+[1.005s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.005s] copying robot_patrol/main_controller.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.006s] copying robot_patrol/__init__.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+[1.006s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/failsafe
+[1.006s] copying robot_patrol/failsafe/ultrasonic_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/failsafe
+[1.006s] copying robot_patrol/failsafe/lidar_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/failsafe
+[1.006s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/vision
+[1.006s] copying robot_patrol/vision/detector.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/vision
+[1.006s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/navigation
+[1.007s] copying robot_patrol/navigation/navigation_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/navigation
+[1.007s] creating /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/communication
+[1.007s] copying robot_patrol/communication/lora_handler.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/communication
+[1.007s] running install
+[1.009s] running install_lib
+[1.010s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.010s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/communication
+[1.011s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/communication/lora_handler.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/communication
+[1.011s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/failsafe
+[1.011s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/failsafe/ultrasonic_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/failsafe
+[1.011s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/failsafe/lidar_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/failsafe
+[1.012s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/main_controller.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.012s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/__init__.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+[1.012s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/navigation
+[1.012s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/navigation/navigation_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/navigation
+[1.012s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/vision
+[1.012s] copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/vision/detector.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/vision
+[1.013s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/communication/lora_handler.py to lora_handler.cpython-38.pyc
+[1.015s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/failsafe/ultrasonic_node.py to ultrasonic_node.cpython-38.pyc
+[1.016s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/failsafe/lidar_node.py to lidar_node.cpython-38.pyc
+[1.016s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/main_controller.py to main_controller.cpython-38.pyc
+[1.018s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/__init__.py to __init__.cpython-38.pyc
+[1.018s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/navigation/navigation_node.py to navigation_node.cpython-38.pyc
+[1.019s] byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/vision/detector.py to detector.cpython-38.pyc
+[1.020s] running install_data
+[1.020s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/share/ament_index
+[1.020s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/share/ament_index/resource_index
+[1.020s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/share/ament_index/resource_index/packages
+[1.020s] copying resource/robot_patrol -> /home/patrol/robot_patrol_ws/install/robot_patrol/share/ament_index/resource_index/packages
+[1.021s] copying package.xml -> /home/patrol/robot_patrol_ws/install/robot_patrol/share/robot_patrol
+[1.021s] creating /home/patrol/robot_patrol_ws/install/robot_patrol/share/robot_patrol/launch
+[1.021s] copying launch/patrol_launch.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/share/robot_patrol/launch
+[1.021s] running install_egg_info
+[1.023s] Copying ../../build/robot_patrol/robot_patrol.egg-info to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol-0.0.0-py3.8.egg-info
+[1.024s] running install_scripts
+[1.044s] Installing failsafe_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.044s] Installing lidar_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.044s] Installing lora_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.045s] Installing navigation_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.045s] Installing ultrasonic_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.045s] Installing vision_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+[1.045s] writing list of installed files to '/home/patrol/robot_patrol_ws/build/robot_patrol/install.log'
+[1.070s] Invoked command in '/home/patrol/robot_patrol_ws/src/robot_patrol' returned '0': PYTHONPATH=/home/patrol/robot_patrol_ws/build/robot_patrol/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_patrol build --build-base /home/patrol/robot_patrol_ws/build/robot_patrol/build install --record /home/patrol/robot_patrol_ws/build/robot_patrol/install.log --single-version-externally-managed install_data

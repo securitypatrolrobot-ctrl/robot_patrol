@@ -1,0 +1,42 @@
+running egg_info
+writing ../../build/robot_patrol/robot_patrol.egg-info/PKG-INFO
+writing dependency_links to ../../build/robot_patrol/robot_patrol.egg-info/dependency_links.txt
+writing entry points to ../../build/robot_patrol/robot_patrol.egg-info/entry_points.txt
+writing requirements to ../../build/robot_patrol/robot_patrol.egg-info/requires.txt
+writing top-level names to ../../build/robot_patrol/robot_patrol.egg-info/top_level.txt
+reading manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+writing manifest file '../../build/robot_patrol/robot_patrol.egg-info/SOURCES.txt'
+running build
+running build_py
+copying robot_patrol/ros_failsafe_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+copying robot_patrol/ros_navigation_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+copying robot_patrol/ros_ultrasonic_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+copying robot_patrol/ros_lora_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+copying robot_patrol/ros_vision_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+copying robot_patrol/ros_lidar_node.py -> /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol
+running install
+running install_lib
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_failsafe_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_navigation_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_ultrasonic_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_lora_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_vision_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+copying /home/patrol/robot_patrol_ws/build/robot_patrol/build/lib/robot_patrol/ros_lidar_node.py -> /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_failsafe_node.py to ros_failsafe_node.cpython-38.pyc
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_navigation_node.py to ros_navigation_node.cpython-38.pyc
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_ultrasonic_node.py to ros_ultrasonic_node.cpython-38.pyc
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_lora_node.py to ros_lora_node.cpython-38.pyc
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_vision_node.py to ros_vision_node.cpython-38.pyc
+byte-compiling /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol/ros_lidar_node.py to ros_lidar_node.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/robot_patrol/robot_patrol.egg-info to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/python3.8/site-packages/robot_patrol-0.0.0-py3.8.egg-info
+running install_scripts
+Installing failsafe_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+Installing lidar_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+Installing lora_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+Installing navigation_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+Installing ultrasonic_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+Installing vision_node script to /home/patrol/robot_patrol_ws/install/robot_patrol/lib/robot_patrol
+writing list of installed files to '/home/patrol/robot_patrol_ws/build/robot_patrol/install.log'

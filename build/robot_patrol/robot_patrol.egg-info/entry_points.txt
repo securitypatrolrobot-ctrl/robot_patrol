@@ -1,0 +1,8 @@
+[console_scripts]
+failsafe_node = robot_patrol.ros_failsafe_node:main
+lidar_node = robot_patrol.ros_lidar_node:main
+lora_node = robot_patrol.ros_lora_node:main
+navigation_node = robot_patrol.ros_navigation_node:main
+ultrasonic_node = robot_patrol.ros_ultrasonic_node:main
+vision_node = robot_patrol.ros_vision_node:main
+
