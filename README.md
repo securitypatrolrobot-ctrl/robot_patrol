@@ -4,8 +4,7 @@ Security patrol robot system built with ROS2 Galactic running on Jetson AGX Xavi
 
 ## Subsystems
 - **Ultrasonic** - Obstacle detection
-- **Lidar** - 360° environment scanning
-- **Vision** - Object detection (YOLO)
+- **Vision** - Object detection (YOLO V11 small)
 - **Navigation** - Autonomous patrol
 - **LoRa** - Long range communication
 - **Failsafe** - Emergency stop system
