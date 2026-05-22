@@ -1,10 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32, Bool
-import sys, os, random
-
-sys.path.append(os.path.dirname(__file__))
-from failsafe.ultrasonic_node import baca_jarak
+import random
 
 class UltrasonicNode(Node):
     def __init__(self):
@@ -15,7 +12,7 @@ class UltrasonicNode(Node):
         self.get_logger().info('✅ Ultrasonic Node siap!')
 
     def baca_sensor(self):
-        jarak = baca_jarak()
+        jarak = round(random.uniform(5.0, 300.0), 2)
         msg_jarak = Float32()
         msg_jarak.data = jarak
         self.pub_jarak.publish(msg_jarak)
