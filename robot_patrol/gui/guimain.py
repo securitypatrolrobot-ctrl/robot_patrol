@@ -45,9 +45,6 @@ from PyQt5.QtCore import (
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 
-# =========================================================
-# Palet warna
-# =========================================================
 PRIMARY      = "#120078"
 BG_APP       = "#E8E8EC"
 BG_CARD      = "#FFFFFF"
@@ -92,16 +89,9 @@ FIELD_NAMES = [
 ]
 
 MAX_DIST_CM = 400
-
-# Konversi raw magnetometer -> Tesla (sama kayak readserial.py)
 RAW_TO_TESLA = 3.333e-9
-
 DEFAULT_PORT_CANDIDATES = ['/tmp/ttyGPS_gui', '/dev/ttyACM0', '/dev/ttyUSB0']
-
-# Batas jarak buat munculin "Obstacle Warning" di Alerts log (cm)
 OBSTACLE_WARN_CM = 40
-
-# Kecepatan gerak manual (D-pad) -> publish ke /cmd_vel
 MANUAL_LINEAR_SPEED = 0.2   # m/s
 MANUAL_ANGULAR_SPEED = 0.6  # rad/s
 MANUAL_PUBLISH_HZ = 10
@@ -116,10 +106,6 @@ def haversine_m(lat1, lon1, lat2, lon2):
     a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlmb / 2) ** 2
     return 2 * R * math.asin(min(1.0, math.sqrt(a)))
 
-
-# =========================================================
-# CARD generik: header navy (judul + widget tambahan) + body putih
-# =========================================================
 class Card(QFrame):
     def __init__(self, title, header_widgets=None, parent=None):
         super().__init__(parent)
@@ -158,10 +144,6 @@ class Card(QFrame):
         self.body_layout.setSpacing(8)
         outer.addWidget(self.body, 1)
 
-
-# =========================================================
-# STAT CARD kecil (dipakai di Robot status + Location bawah peta)
-# =========================================================
 class StatCard(QFrame):
     def __init__(self, title, initial="-", parent=None):
         super().__init__(parent)
@@ -191,10 +173,6 @@ class StatCard(QFrame):
             f"color:{color or FG_VALUE}; font-weight:bold; font-size:16px; background:transparent;"
         )
 
-
-# =========================================================
-# COMPASS WIDGET — cuma dipakai SATU kali, overlay di atas peta
-# =========================================================
 class CompassWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -261,10 +239,6 @@ class CompassWidget(QWidget):
         painter.setPen(QPen(QColor("#222222")))
         painter.drawText(cx - 22, h + 14, f"{self.heading:.1f}°")
 
-
-# =========================================================
-# ALERT ROW — satu baris di Alerts log
-# =========================================================
 class AlertRow(QFrame):
     def __init__(self, timestamp, title, detail="", kind="info", parent=None):
         super().__init__(parent)
@@ -289,10 +263,6 @@ class AlertRow(QFrame):
             d_lbl.setStyleSheet(f"color:#555555; font-size:10px; background:transparent;")
             layout.addWidget(d_lbl)
 
-
-# =========================================================
-# SERIAL READER — baca serial di thread terpisah
-# =========================================================
 class SerialReader(threading.Thread):
     def __init__(self, port, baud, out_queue):
         super().__init__(daemon=True)
@@ -327,11 +297,6 @@ class SerialReader(threading.Thread):
     def stop(self):
         self._stop_flag.set()
 
-
-# =========================================================
-# ROS NODE — subscribe topic GPS/compass, publish cmd_vel manual,
-# dan self-publish (mode 1 port)
-# =========================================================
 class GPSNode(Node, QObject):
     data_signal = pyqtSignal(str, float, float, float)
     compass_signal = pyqtSignal(str, float)
@@ -367,7 +332,6 @@ class GPSNode(Node, QObject):
         msg.angular.z = float(angular_z)
         self.pub_cmd_vel.publish(msg)
 
-    # ── Self-publish dari data serial mentah (mode 1 port) ──────
     def publish_from_dashboard(self, lat, lon, heading, mx, my, mz, gx, gy, gz, ax, ay, az):
         now = self.get_clock().now().to_msg()
 
@@ -429,10 +393,6 @@ class GPSNode(Node, QObject):
             self.data_signal.emit('ekf', msg.latitude, msg.longitude, self._heading_cf)
 
 
-# =========================================================
-# Container kecil buat panel peta, biar bisa reposisi compass
-# overlay tiap kali di-resize.
-# =========================================================
 class _MapContainer(QWidget):
     def __init__(self, on_resize, parent=None):
         super().__init__(parent)
@@ -442,14 +402,10 @@ class _MapContainer(QWidget):
         super().resizeEvent(event)
         self._on_resize()
 
-
-# =========================================================
-# MAIN WINDOW
-# =========================================================
 class MainGUIWindow(QMainWindow):
     def __init__(self, node=None):
         super().__init__()
-        self.setWindowTitle("Security Patrol Robot Dashboard - RE-054")
+        self.setWindowTitle("Security Patrol Robot Dashboard RE-054")
         self.resize(1600, 920)
         self._current_mode = 'raw'
 
@@ -461,18 +417,14 @@ class MainGUIWindow(QMainWindow):
         self.got_first_packet = False
         self.auto_reconnect_enabled = True
         self.connect_time = None
-        self._last_fix = None  # (lat, lon, monotonic_time) buat estimasi speed
+        self._last_fix = None 
 
-        # Statistik paket dihitung sendiri di GUI (bukan cuma nampilin field
-        # mentah dari serial), biar reset tiap konek ulang dan loss-nya
-        # ke-detect beneran dari gap nomor seq -- lihat _handle_line().
         self._last_seq = None
         self._loss_total = 0
         self._local_rx_count = 0
         self._prev_bumper = 0
-        self._prev_obstacle_zone = None  # None / "ok" / "warn"
+        self._prev_obstacle_zone = None
 
-                # kamera
         self.cam_index = 6
         self.cap = None
         self.yolo_model = YOLO("yolov8n.pt") if YOLO_AVAILABLE else None
@@ -524,12 +476,6 @@ class MainGUIWindow(QMainWindow):
             self.cam_timer.timeout.connect(self._update_camera_frame)
             self.cam_timer.start(33)
 
-            # Auto-connect kamera. Kita SENGAJA nunggu window kebuka dulu
-            # (singleShot 800ms) sebelum coba buka v4l2 -- kalau device-nya
-            # bermasalah dan bikin native crash yang gak ketangkep
-            # try/except Python, minimal window utama udah sempet muncul.
-            # Kalau gagal/putus, dicoba lagi tiap beberapa detik otomatis,
-            # gak perlu pencet "Connect" manual lagi.
             self.cam_reconnect_timer = QTimer(self)
             self.cam_reconnect_timer.timeout.connect(self._camera_auto_reconnect_tick)
             self.cam_reconnect_timer.start(3000)
@@ -548,9 +494,6 @@ class MainGUIWindow(QMainWindow):
         self.reconnect_timer.start(2000)
         QTimer.singleShot(300, self._auto_reconnect_tick)
 
-    # ---------------------------------------------------
-    # TOP BAR
-    # ---------------------------------------------------
     def _build_topbar(self):
         top = QWidget()
         top.setFixedHeight(44)
@@ -571,8 +514,6 @@ class MainGUIWindow(QMainWindow):
 
         layout.addStretch(1)
 
-        # Port/refresh/connect balik ditaruh di topbar (compact) -- dipakai
-        # buat troubleshoot manual kalau auto-connect-nya belum nyambung.
         self.port_combo = QComboBox()
         self.port_combo.setFixedWidth(170)
         self.port_combo.setStyleSheet("""
@@ -641,9 +582,6 @@ class MainGUIWindow(QMainWindow):
             QPushButton:hover {{ background:{hover}; }}
         """
 
-    # ---------------------------------------------------
-    # PAGES (Home / Data log) + dropdown menu
-    # ---------------------------------------------------
     def _build_datalog_page(self):
         """Halaman ini isinya dashboard real-time yang udah ada dari
         awal (peta, kamera, manual, robot status, alerts) -- gak ada
@@ -863,10 +801,7 @@ class MainGUIWindow(QMainWindow):
         super().showEvent(event)
         QTimer.singleShot(0, self._rescale_home_page)
         QTimer.singleShot(150, self._rescale_home_page)
-
-    # ---------------------------------------------------
-    # LOCATION CARD (peta + mode buttons + reset + lat/lon)
-    # ---------------------------------------------------
+        
     def _build_location_card(self):
         self.rb_raw = QRadioButton("Raw GPS")
         self.rb_raw.setChecked(True)
@@ -1052,9 +987,6 @@ function clearPath() {{
     def reset_path(self):
         self.web.page().runJavaScript("clearPath();")
 
-    # ---------------------------------------------------
-    # LIVE CAMERA CARD
-    # ---------------------------------------------------
     def _build_camera_card(self):
         self.cam_connect_btn = QPushButton("Connect")
         self.cam_connect_btn.setStyleSheet(self._pill_btn_style(bg=WHITE, fg=PRIMARY))
@@ -1188,9 +1120,6 @@ function clearPath() {{
         except Exception:
             print(traceback.format_exc())
 
-    # ---------------------------------------------------
-    # MANUAL CARD (D-pad -> /cmd_vel)
-    # ---------------------------------------------------
     def _build_manual_card(self):
         card = Card("\u2B07 Manual")
         card.setMinimumWidth(240)
@@ -1321,7 +1250,6 @@ function clearPath() {{
 
         grid.addWidget(comm_frame, 0, 0, 3, 1)
 
-        # -- blok Speed --
         speed_frame = self._block_frame()
         speed_lay = QVBoxLayout(speed_frame)
         speed_lay.setContentsMargins(8, 8, 8, 8)
@@ -1331,7 +1259,6 @@ function clearPath() {{
         speed_lay.addStretch(1)
         grid.addWidget(speed_frame, 0, 1)
 
-        # -- blok Battery --
         battery_frame = self._block_frame()
         battery_lay = QVBoxLayout(battery_frame)
         battery_lay.setContentsMargins(8, 8, 8, 8)
@@ -1341,7 +1268,6 @@ function clearPath() {{
         battery_lay.addStretch(1)
         grid.addWidget(battery_frame, 1, 1)
 
-        # -- blok Ultrasonic --
         dist_frame = self._block_frame()
         dist_lay = QVBoxLayout(dist_frame)
         dist_lay.setContentsMargins(8, 8, 8, 8)
@@ -1351,7 +1277,6 @@ function clearPath() {{
         dist_lay.addStretch(1)
         grid.addWidget(dist_frame, 0, 2)
 
-        # -- blok Uptime --
         uptime_frame = self._block_frame()
         uptime_lay = QVBoxLayout(uptime_frame)
         uptime_lay.setContentsMargins(8, 8, 8, 8)
@@ -1361,7 +1286,6 @@ function clearPath() {{
         uptime_lay.addStretch(1)
         grid.addWidget(uptime_frame, 1, 2)
 
-        # -- blok Bumper (tinggi 2 baris) --
         bumper_frame = self._block_frame()
         bumper_lay = QVBoxLayout(bumper_frame)
         bumper_lay.setContentsMargins(8, 8, 8, 8)
@@ -1374,7 +1298,7 @@ function clearPath() {{
         bumper_lay.addStretch(1)
         grid.addWidget(bumper_frame, 0, 3, 2, 1)
 
-        # -- blok IMU (accel/gyro), lebar penuh baris bawah --
+
         imu_frame = self._block_frame()
         imu_layout = QVBoxLayout(imu_frame)
         imu_layout.setContentsMargins(10, 10, 10, 10)
@@ -1405,9 +1329,6 @@ function clearPath() {{
     def _mini_stat(self, title):
         return StatCard(title, "-")
 
-    # ---------------------------------------------------
-    # ALERTS LOG CARD
-    # ---------------------------------------------------
     def _build_alerts_card(self):
         btn_clear = QPushButton("Clear All")
         btn_clear.setStyleSheet(self._pill_btn_style(bg=WHITE, fg=PRIMARY))
